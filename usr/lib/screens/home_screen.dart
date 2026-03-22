@@ -36,7 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           
-          // زر القائمة الجانبية
+          // زر العودة لاختيار الواجهة (لأغراض التجربة)
           Positioned(
             top: 50,
             right: 20,
@@ -44,12 +44,10 @@ class _HomeScreenState extends State<HomeScreen> {
               backgroundColor: Colors.white,
               radius: 25,
               child: IconButton(
-                icon: const Icon(Icons.menu, color: Colors.black, size: 28),
+                icon: const Icon(Icons.exit_to_app, color: Colors.black, size: 28),
+                tooltip: 'العودة لاختيار الواجهة',
                 onPressed: () {
-                  // سيتم إضافة القائمة الجانبية لاحقاً
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('القائمة الجانبية')),
-                  );
+                  Navigator.pushReplacementNamed(context, '/');
                 },
               ),
             ),

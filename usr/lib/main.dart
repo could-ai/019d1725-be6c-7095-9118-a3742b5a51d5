@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'screens/role_selection_screen.dart';
 import 'screens/home_screen.dart';
 import 'screens/search_screen.dart';
 import 'screens/ride_selection_screen.dart';
+import 'screens/driver/driver_home_screen.dart';
+import 'screens/admin/admin_dashboard_screen.dart';
 
 void main() {
   runApp(const UberCloneApp());
@@ -16,7 +19,6 @@ class UberCloneApp extends StatelessWidget {
     return MaterialApp(
       title: 'تطبيق حجز سيارات',
       debugShowCheckedModeBanner: false,
-      // دعم اللغة العربية والاتجاه من اليمين لليسار
       localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
@@ -34,7 +36,7 @@ class UberCloneApp extends StatelessWidget {
           secondary: Colors.black87,
         ),
         scaffoldBackgroundColor: Colors.white,
-        fontFamily: 'Tahoma', // خط افتراضي يدعم العربية بشكل جيد
+        fontFamily: 'Tahoma',
         appBarTheme: const AppBarTheme(
           backgroundColor: Colors.white,
           foregroundColor: Colors.black,
@@ -43,9 +45,12 @@ class UberCloneApp extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: {
-        '/': (context) => const HomeScreen(),
+        '/': (context) => const RoleSelectionScreen(),
+        '/rider_home': (context) => const HomeScreen(),
         '/search': (context) => const SearchScreen(),
         '/ride_selection': (context) => const RideSelectionScreen(),
+        '/driver_home': (context) => const DriverHomeScreen(),
+        '/admin_dashboard': (context) => const AdminDashboardScreen(),
       },
     );
   }
